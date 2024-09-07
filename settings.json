@@ -1,0 +1,80 @@
+{
+    "SettingsVersion": 1.2,
+    "SimMode": "Multirotor",
+    "ViewMode": "FlyWithMe",
+    "LogMessages": true,
+    "EngineLogLevel": "verbose",
+    "Vehicles": {
+        "Drone1": {
+            "VehicleType": "SimpleFlight",
+            "AutoCreate": true,
+            "Cameras": {
+                "DepthCamera": {
+                    "CaptureSettings": [
+                        {
+                            "ImageType": 3,
+                            "Width": 640,
+                            "Height": 480
+                        }
+                    ],
+                    "X": 0,
+                    "Y": 0,
+                    "Z": 0,
+                    "Pitch": 0,
+                    "Roll": 0,
+                    "Yaw": 0
+                },
+                "SegmentationCamera": {
+                    "CaptureSettings": [
+                        {
+                            "ImageType": 5,
+                            "Width": 640,
+                            "Height": 480
+                        }
+                    ],
+                    "X": 0,
+                    "Y": 0,
+                    "Z": 0,
+                    "Pitch": 0,
+                    "Roll": 0,
+                    "Yaw": 0
+                },
+                "FPVCamera": {
+                    "CaptureSettings": [
+                        {
+                            "ImageType": 0,
+                            "Width": 640,
+                            "Height": 480
+                        }
+                    ],
+                    "X": 0,
+                    "Y": 0,
+                    "Z": 0,
+                    "Pitch": 0,
+                    "Roll": 0,
+                    "Yaw": 0
+                }
+            }
+        }
+    },
+    "SubWindows": [
+        {
+            "WindowID": 0,
+            "CameraName": "FPVCamera",
+            "ImageType": 0,
+            "Visible": true
+        },
+        {
+            "WindowID": 1,
+            "CameraName": "DepthCamera",
+            "ImageType": 3,
+            "Visible": true
+        },
+        {
+            "WindowID": 2,
+            "CameraName": "SegmentationCamera",
+            "ImageType": 5,
+            "Visible": true
+        }
+    ]
+}

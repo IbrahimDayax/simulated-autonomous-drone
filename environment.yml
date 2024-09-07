@@ -1,0 +1,22 @@
+name: autonomous_drone_navigation
+channels:
+  - defaults
+dependencies:
+  - python=3.8.19
+  - ca-certificates=2024.3.11
+  - libffi=3.4.4
+  - openssl=3.0.13
+  - pip=24.0
+  - setuptools=69.5.1
+  - sqlite=3.45.3
+  - vc=14.2
+  - vs2015_runtime=14.29.30133
+  - numpy=1.24.4
+  - pip:
+    - airsim==1.2.2
+    - msgpack-python==0.5.6
+    - msgpack-rpc-python==0.4.1
+    - opencv-contrib-python==4.10.0.82
+    - opencv-python==4.10.0.82
+    - tornado==4.5.3
+    - wheel==0.43.0
