@@ -7,7 +7,7 @@ This project simulates autonomous drone navigation using a combination of Q-Lear
 - [Installation](#installation)
 - [Simulation Setup](#simulation-setup)
 - [Project Files](#project-files)
-- [Detailed Overview of the Different Methods Used to Achieve Autonomus Drone Navigation with Obstacle Detection & Avoidance](#detailed-overview-of-the-different-methods used-to-achieve-autonomus-drone-navigation-with-obstacle-detection-&-avoidance)
+- [Detailed Overview of the Different Methods Used](#Detailed-Overview-of-the-Different-Methods-Used)
 - [Results](#results)
 - [Q-Learning Model Performance](#Q-Learning-Model-Performance)
 
@@ -93,7 +93,7 @@ Here is an overview of the files in this project and their purposes:
 
 All these files work together to define the environment, train the Q-learning agent, and store performance data that can be used to improve or test the system.
 
-## Detailed Overview of the Different Methods Used to Achieve Autonomus Drone Navigation with Obstacle Detection & Avoidance
+## Detailed Overview of the Different Methods Used
 
 ### Using Only Computer Vision & Image Processing
 
