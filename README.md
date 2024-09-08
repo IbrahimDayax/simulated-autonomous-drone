@@ -14,7 +14,7 @@ model.
 
 ## Requirements
 
-The project uses various Python libraries for implementing machine learning algorithms and performing computer vision tasks. These packages can be installed using Conda or pip.
+The project was simulated using Unreal Engine 4.27 and AirSim. We also used various Python libraries for implementing machine learning algorithms and performing computer vision tasks. These packages can be installed using Conda or pip. I used the AirSim Forest environment which can be found and downloaded from this [link](https://github.com/microsoft/AirSim/releases/tag/v.1.2.2). I chose to use the forest environment for both the variety of obstacles in forest environments and the practical use cases of having an autonomous drone capable of navigating a forest while avoiding obstacles for search and resecue missions as well as exploration and fire watching.
 
 ### Environment Setup
 
