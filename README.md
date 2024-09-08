@@ -31,5 +31,32 @@ An environment.yml file is included to install all necessary dependencies.
 
 ## Installation
 
-1. 
-    ```bash
+1. Clone the repository:
+   - ```bash
+     git clone https://github.com/IbrahimDayax/simulated-autonomous-drone.git
+2. Navigate to the project directory:
+   - ```bash
+     cd simulated-autonomous-drone
+3. Create a Conda environment from the provided environment.yml file:
+   - ```bash
+     conda env create -f environment.yml
+4. Activate the environment:
+   - ```bash
+     conda activate autonomous_drone_navigation
+
+## Simulation Setup
+
+In this project, the AirSim plugin, built on Unreal Engine 4, was used to simulate autonomous UAV navigation and obstacle detection in a high-fidelity test environment. The AirSim forest environment, rich in obstacles, was chosen for its realism, making it ideal for testing drone navigation in forest-like scenarios. The UAV was equipped with three primary cameras: a Depth Camera for generating depth maps for obstacle avoidance, a Segmentation Camera for distinguishing objects from the background, and an FPV Camera to simulate the pilot's view. The system provided comprehensive visual feedback, including a bird's-eye view for tracking the UAV's location during flight.
+![screen01](https://github.com/user-attachments/assets/f69973ff-92f0-4c1a-94a4-8dd04df77ea1)
+
+
+## System Architecture
+
+### Q-Learning
+
+Q-learning is used to enable the drone to learn an optimal policy for reaching its destination by trial and error. The algorithm updates its Q-values based on rewards received from the environment for every action taken. Over time, the agent learns the best set of actions to take to maximize cumulative rewards, avoiding obstacles and minimizing flight time.
+
+- State Representation: The drone's position, velocity, and proximity to obstacles.
+- Action Space: Possible movements in 3D space (up, down, left, right, forward, backward).
+- Reward System: Positive rewards for moving towards the goal and negative rewards for collisions with obstacles.
+
