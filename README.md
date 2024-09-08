@@ -1,5 +1,6 @@
 # Simulated Autonomous Drone Navigation Using Q-Learning and Computer Vision
 
+This project simulates autonomous drone navigation using a combination of Reinforcement Learning (Q-Learning) and computer vision techniques within the AirSim environment based on Unreal Engine 4. The drone, equipped with Depth, Segmentation, and FPV cameras, navigates a forest-like environment while avoiding obstacles to reach and land on given target coordinates. The system integrates computer vision for real-time obstacle detection and Q-Learning for decision-making, resulting in a hybrid approach that significantly improves navigation efficiency and collision avoidance compared to using either method alone.
 
 ## Requirements
 
