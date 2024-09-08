@@ -6,7 +6,7 @@ This project simulates autonomous drone navigation using a combination of Q-Lear
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Simulation Setup](#simulation-setup)
-- [Project Files](#project-files)
+- [Project File Descriptions](#project-file-descriptions)
 - [Detailed Overview of the Different Methods Used](#Detailed-Overview-of-the-Different-Methods-Used)
      1. [Using Only Computer Vision & Image Processing](#Using-Only-Computer-Vision-&-Image-Processing)
      2. [Q-Learning](#Q-Learning)
@@ -69,7 +69,7 @@ In this project, the AirSim plugin, built on Unreal Engine 4, was used to simula
 
 ![screen05](https://github.com/user-attachments/assets/b55c3fac-ab15-4eb6-b405-2809b7da1558)
 
-## Project Files
+## Project File Descriptions
 
 Here is an overview of the files in this project and their purposes:
 
