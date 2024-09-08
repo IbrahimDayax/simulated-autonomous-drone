@@ -34,7 +34,21 @@ An environment.yml file is included to install all necessary dependencies.
 4. Activate the environment:
    - ```bash
      conda activate autonomous_drone_navigation
-
+5. Install Unreal Engine 4.27 and AirSim
+6. Download the AirSim [Forest](https://github.com/microsoft/AirSim/releases/tag/v.1.2.2) Environment then extract and then run it's exe file
+7. To test the Q-Learning model run
+   - ```bash
+     python test.py
+   and to train it further run
+   - ```bash
+     python train.py
+8. To simulate the Hybrid combined CV-RL method run
+   - ```bash
+     python hybrid_auto_drone.py
+9. To simulate the Computer Vision without RL method run
+    - ```bash
+      python cv_auto_drone.py
+      
 ## Simulation Setup
 
 In this project, the AirSim plugin, built on Unreal Engine 4, was used to simulate autonomous UAV navigation and obstacle detection in a high-fidelity test environment. The AirSim forest environment, rich in obstacles, was chosen for its realism, making it ideal for testing drone navigation in forest-like scenarios. The UAV was equipped with three primary cameras: a Depth Camera for generating depth maps for obstacle avoidance, a Segmentation Camera for distinguishing objects from the background, and an FPV Camera to simulate the pilot's view. The system provided comprehensive visual feedback, including a bird's-eye view for tracking the UAV's location during flight.
@@ -47,16 +61,16 @@ Here is an overview of the files in this project and their purposes:
 
 ### Configuration Files
 
-- **settings.json:** 
+- **settings.json:** This file configures the AirSim simulation environment. It specifies the simulation mode as "Multirotor" and sets the view mode to "FlyWithMe". The file configures a drone with three cameras—DepthCamera, SegmentationCamera, and FPVCamera—each with specified capture settings. It also defines sub-windows for displaying images from these cameras during the simulation. The logging settings are set to verbose, allowing detailed message logs.
 
 ### Code Files
 
 1. **cv_auto_drone.py:** This script processes images from the drone's cameras to detect and avoid obstacles. It uses segmentation and depth images to identify and measure obstacles, applying OpenCV techniques to find and track these obstacles. This information helps the drone navigate safely around obstacles while moving towards its goal.
-2. **environment.py:** This file is the environment setup script. It may define the simulation environment where the drone operates, including the grid or map, obstacles, targets, and rewards. This is crucial for both Q-learning and other navigation approaches, as it defines the parameters and dynamics of the environment the drone interacts with.
-3. **hybrid_auto_drone.py:** This script implements a hybrid approach for autonomous navigation. It might combine Computer Vision and Reinforcement Learning (Q-learning) techniques to leverage the benefits of both, such as visual perception from CV and decision-making through RL for better navigation.
-4. **q_learning_agent.py:** This file implements the Q-learning agent that learns optimal navigation strategies by interacting with the environment. It contains the logic for updating the Q-table, choosing actions, calculating rewards, and managing the learning process. The agent improves by learning the best actions in given states through repeated simulation.
-5. **train.py:** This script handles the training process of the Q-learning agent. It runs the simulation for several episodes, logs performance metrics, and saves the trained Q-table or rewards.
-6. **test.py:** This script is used to test the trained Q-learning model or other algorithms in new scenarios. It evaluate the agent's performance on unseen environments or different tasks without updating the Q-table.
+2. **environment.py:** This file is the environment setup script. It defines a DroneEnv class for controlling a drone in AirSim. It handles drone initialization, movement based on actions, state updates using image data, and reward calculation for navigation and collision avoidance. The step method moves the drone and computes rewards, while the close method stops and resets the drone.
+3. **hybrid_auto_drone.py:** This script processes depth and segmentation images to detect and avoid obstacles. It uses OpenCV to identify obstacles, update the drone's state, and guide its navigation. A Q-learning model then determines the drone's actions to navigate safely towards its target.
+4. **q_learning_agent.py:** This file defines a QLearningAgent class for implementing a Q-learning algorithm. It initializes a Q-table, manages exploration-exploitation trade-offs with an epsilon-greedy strategy, and updates the Q-table based on learning from rewards and next states. The drone agent can choose actions, learn from experiences, and save or load the Q-table to/from a file.
+5. **train.py:** This script handles the training process of the Q-learning agent. It runs the simulation for several episodes, logs performance metrics, saves the trained Q-table or rewards and reports the best-performing episode.
+6. **test.py:** This script tests the Q-learning agent's performance by loading the best Q-table and evaluating the drone agent in the DroneEnv environment over a specified number of episodes. It prints the total reward for each test episode and then closes the environment.
 
 ### Data Directory Files
 
@@ -68,7 +82,7 @@ Here is an overview of the files in this project and their purposes:
 
 All these files work together to define the environment, train the Q-learning agent, and store performance data that can be used to improve or test the system.
 
-## System Architecture
+## Techniques Used for Autonomus Drone Navigation with Obstacle Detection & Avoidance
 
 ### Using Computer Vision & Image Processing alone
 
@@ -88,7 +102,8 @@ Q-learning is used to enable the drone to learn an optimal policy for reaching i
 
 ### Hybrid Computer Vision & Q-Learning
 
-The hybrid approach combines the strengths of Q-learning's decision-making capabilities with computer vision's obstacle detection. The system uses the camera feed to detect obstacles and then uses Q-learning to plan the optimal route to avoid collisions while heading toward the goal.
+The hybrid approach combines the strengths of Q-learning's decision-making capabilities with computer vision's obstacle detection. The system uses the camera feed to detect obstacles and then uses Q-learning to plan the optimal route to avoid collisions while heading toward the goal. This hybrid method is implemented in the **hybrid_auto_drone.py** script where image processing and computer vision play a crucial role in the drone's autonomous navigation and obstacle avoidance. The script captures depth and segmentation images from the AirSim environment. Depth images provide distance information, and segmentation images differentiate objects based on their assigned colors. OpenCV is used to process these images, detecting obstacles by analyzing pixel depth and applying morphological operations like erosion. The detected obstacles are enclosed within bounding boxes, and the nearest one is identified based on its depth. These obstacles are used to update the drone's state, guiding it in choosing escape maneuvers to avoid collisions and reach its target. The script then employs a trained Q-learning model to select the appropriate action based on the processed state data, enabling the drone to navigate toward its target coordinates autonomously.
+
 
 ## Results
 
