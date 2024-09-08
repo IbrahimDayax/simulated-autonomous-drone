@@ -8,6 +8,9 @@ This project simulates autonomous drone navigation using a combination of Q-Lear
 - [Simulation Setup](#simulation-setup)
 - [Project Files](#project-files)
 - [Detailed Overview of the Different Methods Used](#Detailed-Overview-of-the-Different-Methods-Used)
+     1. [Using Only Computer Vision & Image Processing](#Using-Only-Computer-Vision-&-Image-Processing)
+     2. [Q-Learning](#Q-Learning)
+     3. [Hybrid Computer Vision & Q-Learning](Hybrid-Computer-Vision-&-Q-Learning)
 - [Results](#results)
 - [Q-Learning Model Performance](#Q-Learning-Model-Performance)
 
