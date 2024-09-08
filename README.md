@@ -41,12 +41,40 @@ In this project, the AirSim plugin, built on Unreal Engine 4, was used to simula
 
 ![screen05](https://github.com/user-attachments/assets/b55c3fac-ab15-4eb6-b405-2809b7da1558)
 
+## Project Files
+
+Here is an overview of the files in this project and their purposes:
+
+### Configuration Files
+
+- settings.json: 
+
+### Code Files
+
+1. cv_auto_drone.py: This script handles autonomous drone navigation using Computer Vision (CV) techniques. The code probably processes image data to identify obstacles and navigate the environment based on visual inputs, such as detecting features, landmarks, or objects.
+2. environment.py: This file is the environment setup script. It may define the simulation environment where the drone operates, including the grid or map, obstacles, targets, and rewards. This is crucial for both Q-learning and other navigation approaches, as it defines the parameters and dynamics of the environment the drone interacts with.
+3. hybrid_auto_drone.py: This script implements a hybrid approach for autonomous navigation. It might combine Computer Vision and Reinforcement Learning (Q-learning) techniques to leverage the benefits of both, such as visual perception from CV and decision-making through RL for better navigation.
+4. q_learning_agent.py: This file implements the Q-learning agent that learns optimal navigation strategies by interacting with the environment. It contains the logic for updating the Q-table, choosing actions, calculating rewards, and managing the learning process. The agent improves by learning the best actions in given states through repeated simulation.
+5. train.py: This script handles the training process of the Q-learning agent. It runs the simulation for several episodes, logs performance metrics, and saves the trained Q-table or rewards.
+6. test.py: This script is used to test the trained Q-learning model or other algorithms in new scenarios. It evaluate the agent's performance on unseen environments or different tasks without updating the Q-table.
+
+### Data Directory Files
+
+1. best_q_table.npy: This file stores the best Q-table found during training. The Q-table contains learned values for each state-action pair and represents the agent’s knowledge of optimal actions based on prior experience.
+2. best_reward.npy: This file saves the best reward achieved during training, which represents the highest cumulative reward the agent obtained in an episode. It’s useful for monitoring progress and evaluating the efficiency of the learned policy.
+3. last_episode.npy: This file stores the state of the Q-table, rewards, or other metrics from the last training episode. It allows you to resume training from where you left off or analyze the performance at the final stage of training.
+4. q_table.npy: This file contains the current Q-table, which is used by the agent to determine the best actions during training or testing. It stores the values for all state-action pairs and is updated as the agent interacts with the environment.
+5. total_rewards.npy: This file logs the total rewards obtained across all episodes. It helps track the performance of the agent over time, showing whether the learning algorithm is improving and how quickly it converges to an optimal solution.
+
+All these files work together to define the environment, train the Q-learning agent, and store performance data that can be used to improve or test the system.
 
 ## System Architecture
 
-### Using Computer Vision alone
+### Using Computer Vision & Image Processing alone
 
 The computer vision-based algorithm enables autonomous drone navigation and real-time obstacle avoidance in complex environments. The drone, simulated in AirSim, utilizes three primary cameras: Depth, Segmentation, and FPV. The Depth Camera generates depth maps to gauge object distances, while the Segmentation Camera distinguishes between objects using color-coded segmentation. FPV provides a standard visual feed. The algorithm processes depth and segmentation data to detect obstacles, applying techniques like Canny edge detection to refine object boundaries. The drone continuously estimates distances to obstacles, adjusting its path when objects are detected within a 5-meter range, ensuring collision-free navigation toward the target.
+
+Image processing and computer vision are used to enable the drone to detect and avoid obstacles in its environment. The drone captures segmentation and depth images using the AirSim environment. Segmentation images help classify objects by assigning different colors, while depth images provide distance information from the drone to objects. OpenCV is then used for processing these images by detecting contours, applying thresholding, and calculating bounding boxes around obstacles. These bounding boxes help determine the location of the closest obstacle relative to the drone, allowing it to choose safe escape maneuvers and avoid collisions. The processed images guide the drone’s navigation logic to ensure it moves toward its goal while avoiding obstacles.
 
 ### Q-Learning
 
