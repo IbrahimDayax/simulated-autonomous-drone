@@ -1,6 +1,6 @@
-# Simulated Autonomous Drone Navigation Using Q-Learning and Computer Vision
+# Simulated Autonomous Drone Navigation Using Reinforcement Learning (Q-Learning) and Computer Vision
 
-This project simulates autonomous drone navigation using a combination of Reinforcement Learning (Q-Learning) and computer vision techniques within the AirSim environment based on Unreal Engine 4. The drone, equipped with Depth, Segmentation, and FPV cameras, navigates a forest-like environment while avoiding obstacles to reach and land on given target coordinates. The system integrates computer vision for real-time obstacle detection and Q-Learning for decision-making, resulting in a hybrid approach that significantly improves navigation efficiency and collision avoidance compared to using either method alone.
+This project simulates autonomous drone navigation using a combination of Q-Learning and computer vision techniques within the AirSim environment based on Unreal Engine 4. The drone, equipped with Depth, Segmentation, and FPV cameras, navigates a forest-like environment while avoiding obstacles to reach and land on given target coordinates. The system integrates computer vision for real-time obstacle detection and Q-Learning for decision-making, resulting in a hybrid approach that significantly improves navigation efficiency and collision avoidance compared to using either method alone.
 
 ## Requirements
 
@@ -86,11 +86,11 @@ All these files work together to define the environment, train the Q-learning ag
 
 ## Detailed Overview of the Different Methods Used to Achieve Autonomus Drone Navigation with Obstacle Detection & Avoidance
 
-### Using Computer Vision & Image Processing alone
+### Using Only Computer Vision & Image Processing
 
 The computer vision-based algorithm enables autonomous drone navigation and real-time obstacle avoidance in complex environments. The drone, simulated in AirSim, utilizes three primary cameras: Depth, Segmentation, and FPV. The Depth Camera generates depth maps to gauge object distances, while the Segmentation Camera distinguishes between objects using color-coded segmentation. FPV provides a standard visual feed. The algorithm processes depth and segmentation data to detect obstacles, applying techniques like Canny edge detection to refine object boundaries. The drone continuously estimates distances to obstacles, adjusting its path when objects are detected within a 5-meter range, ensuring collision-free navigation toward the target.
 
-Image processing and computer vision are used to enable the drone to detect and avoid obstacles in its environment. The drone captures segmentation and depth images using the AirSim environment. Segmentation images help classify objects by assigning different colors, while depth images provide distance information from the drone to objects. OpenCV is then used for processing these images by detecting contours, applying thresholding, and calculating bounding boxes around obstacles. These bounding boxes help determine the location of the closest obstacle relative to the drone, allowing it to choose safe escape maneuvers and avoid collisions. The processed images guide the drone’s navigation logic to ensure it moves toward its goal while avoiding obstacles.
+This approach was implemented in the **cv_auto_drone.py** script, where image processing and computer vision were used to enable the drone to detect and avoid obstacles in its environment. The drone captures segmentation and depth images using the AirSim environment. Segmentation images help classify objects by assigning different colors, while depth images provide distance information from the drone to objects. OpenCV is then used for processing these images by detecting contours, applying thresholding, and calculating bounding boxes around obstacles. These bounding boxes help determine the location of the closest obstacle relative to the drone, allowing it to choose safe escape maneuvers and avoid collisions. The processed images guide the drone’s navigation logic to ensure it moves toward its goal while avoiding obstacles.
 
 ### Q-Learning
 
