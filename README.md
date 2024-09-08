@@ -9,6 +9,7 @@ This project simulates autonomous drone navigation using a combination of Q-Lear
 - [Project Files](#project-files)
 - [Detailed Overview of the Different Methods Used to Achieve Autonomus Drone Navigation with Obstacle Detection & Avoidance](#detailed-overview-of-the-different-methods used-to-achieve-autonomus-drone-navigation-with-obstacle-detection-&-avoidance)
 - [Results](#results)
+- [Q-Learning Model Performance](#Q-Learning-Model-Performance)
 
 ## Requirements
 
