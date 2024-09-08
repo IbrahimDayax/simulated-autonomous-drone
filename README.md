@@ -1,11 +1,11 @@
 # Simulated Autonomous Drone Navigation Using Q-Learning and Computer Vision
 
-This project successfully developed and evaluated autonomous navigation systems for drones using three different approaches: computer vision, reinforcement learning (Q-Learning), and a hybrid method combining both. The computer vision system, though capable of detecting and navigating around obstacles, exhibited longer flight times and higher collision rates. The reinforcement learning model demonstrated significant improvement in efficiency and collision avoidance, albeit with a more complex training
-process. The hybrid approach effectively leveraged the strengths of both methods, achieving the shortest flight times and minimal collisions, thus demonstrating the potential of integrating multiple techniques for enhanced autonomous navigation. The training process involved rigorous simulation and evaluation, leading to a robust final model.
 
 ## Requirements
 
-The project was simulated using Unreal Engine 4.27 and AirSim. We also used various Python libraries for implementing machine learning algorithms and performing computer vision tasks. These packages can be installed using Conda or pip. I used the AirSim Forest environment which can be found and downloaded from this [link](https://github.com/microsoft/AirSim/releases/tag/v.1.2.2). I chose to use the forest environment for both the variety of obstacles in forest environments and the practical use cases of having an autonomous drone capable of navigating a forest while avoiding obstacles for search and resecue missions as well as exploration and fire watching.
+1. Conda
+2. Unreal Engine 4.27 & AirSim
+3. Laptop with good cpu and ram (minimum core i5 with 16gb ram)
 
 ### Environment Setup
 
@@ -28,24 +28,25 @@ An environment.yml file is included to install all necessary dependencies.
 2. Navigate to the project directory:
    - ```bash
      cd simulated-autonomous-drone
-3. Create a Conda environment from the provided environment.yml file:
+3. Install [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)  
+4. Create a Conda environment from the provided environment.yml file:
    - ```bash
      conda env create -f environment.yml
-4. Activate the environment:
+5. Activate the environment:
    - ```bash
      conda activate autonomous_drone_navigation
-5. Install Unreal Engine 4.27 and AirSim
-6. Download the AirSim [Forest](https://github.com/microsoft/AirSim/releases/tag/v.1.2.2) Environment then extract and then run it's exe file
-7. To test the Q-Learning model run
+6. Install [Unreal Engine 4.27 and AirSim](https://microsoft.github.io/AirSim/build_windows/)
+7. Download the AirSim [forest](https://github.com/microsoft/AirSim/releases/tag/v.1.2.2) environment then extract and then run it's exe file
+8. To test the Q-Learning model run
    - ```bash
      python test.py
    and to train it further run
    - ```bash
      python train.py
-8. To simulate the Hybrid combined CV-RL method run
+9. To simulate the Hybrid combined CV-RL method run
    - ```bash
      python hybrid_auto_drone.py
-9. To simulate the Computer Vision without RL method run
+10. To simulate the Computer Vision without RL method run
     - ```bash
       python cv_auto_drone.py
       
@@ -82,7 +83,7 @@ Here is an overview of the files in this project and their purposes:
 
 All these files work together to define the environment, train the Q-learning agent, and store performance data that can be used to improve or test the system.
 
-## Techniques Used for Autonomus Drone Navigation with Obstacle Detection & Avoidance
+## Detailed Overview of the Different Methods Used to Achieve Autonomus Drone Navigation with Obstacle Detection & Avoidance
 
 ### Using Computer Vision & Image Processing alone
 
